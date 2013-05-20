@@ -7,8 +7,8 @@ angular.module('ui.bootstrap.collapse', ['ui.bootstrap.transition'])
     link: function(scope, element, attrs) {
       var isCollapsed;
       var initialAnimSkip = attrs.initialAnimSkip || true;
-      var widthOrHeight = attrs.collapseType || "height";
-      var scrollType = widthOrHeight == "height" ? "scrollHeight" : "scrollWidth"
+      var widthOrHeight   = (attrs.collapseType == "horizontal") ? "width" : "height";
+      var scrollType      = (widthOrHeight == "height") ? "scrollHeight" : "scrollWidth"
 
       // CSS transitions don't work with height: auto, so we have to manually change the height to a
       // specific value and then once the animation completes, we can reset the height to auto.
